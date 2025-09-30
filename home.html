@@ -1,0 +1,163 @@
+```html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Green House — Shop</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="container top-inner">
+      <div class="brand-left">
+        <img src="logo1.png" class="logo-small" alt="logo" />
+        <div class="brand-text">
+          <div class="brand-name">Green House</div>
+          <div class="brand-sub">Rose Marry Hair Oil</div>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a href="#products">Products</a>
+        <a href="#benefits">Benefits</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <button class="btn gold" onclick="toggleCart()">Cart (<span id="cartCount">0</span>)</button>
+        <!-- 🔴 Updated Logout Button -->
+        <button class="logout-btn" onclick="doLogout()">Logout</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero-section">
+      <div class="container hero-grid">
+        <div class="hero-left">
+          <h1>Nature-powered hair care</h1>
+          <p class="lead">Rose Marry Hair Oil — handcrafted with Amla, Rosemary & Fenugreek seeds. Strong roots, less fall, natural shine.</p>
+          <div class="cta-row">
+            <button class="btn primary" onclick="scrollTo('#products')">Shop Now</button>
+            <a class="btn ghost" href="#about">Learn More</a>
+          </div>
+          <div class="hero-features">
+            <div>✅ 100% Natural</div>
+            <div>✅ Handmade</div>
+            <div>✅ No chemicals</div>
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <div class="product-preview">
+            <img src="bott.png" alt="Rose Marry Oil" />
+            <div class="product-card-info">
+              <div class="pc-title">Rose Marry Hair Oil</div>
+              <div class="pc-price">₹299 — 100ml</div>
+              <button class="btn primary" onclick="addToCart('Rose Marry 100ml',299,'oil.png')">Add to cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Products -->
+    <section id="products" class="container section">
+      <h2>Featured Products</h2>
+      <div class="products-grid" id="productsGrid">
+        <div class="card product-card">
+          <img src="hai.png" alt="">
+          <div class="p-info">
+            <h3>Rose Marry 100ml</h3>
+            <div class="price">₹299</div>
+            <div class="muted">Amla, Rosemary, Fenugreek — natural blend</div>
+            <div class="p-actions">
+              <button class="btn primary" onclick="addToCart('Rose Marry 100ml',299,'oil.png')">Add to cart</button>
+              <button class="btn ghost" onclick="openQuick('Rose Marry 100ml')">Quick view</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card product-card">
+          <img src="bott.png" alt="">
+          <div class="p-info">
+            <h3>Rose Marry 200ml</h3>
+            <div class="price">₹499</div>
+            <div class="muted">Bigger bottle for longer use</div>
+            <div class="p-actions">
+              <button class="btn primary" onclick="addToCart('Rose Marry 200ml',499,'oil.png')">Add to cart</button>
+              <button class="btn ghost" onclick="openQuick('Rose Marry 200ml')">Quick view</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cart Drawer -->
+    <aside id="cartDrawer" class="cart-drawer" aria-hidden="true">
+      <div class="cart-head">
+        <strong>Your Cart</strong>
+        <button class="btn ghost" onclick="toggleCart()">Close</button>
+      </div>
+      <div id="cartBody" class="cart-body"></div>
+      <div class="cart-footer">
+        <div class="cart-total">Total: <strong id="cartTotal">₹0</strong></div>
+        <div class="cart-actions">
+          <button class="btn ghost" onclick="clearCart()">Clear</button>
+          <button class="btn gold" onclick="goCheckout()">Checkout</button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Benefits -->
+    <section id="benefits" class="container section">
+      <h2>Benefits</h2>
+      <div class="benefits-grid">
+        <div class="benefit">Strengthens roots & reduces hair-fall</div>
+        <div class="benefit">Promotes fast, healthy growth</div>
+        <div class="benefit">Adds natural shine & smoothness</div>
+        <div class="benefit">Chemical-free & safe for all</div>
+      </div>
+    </section>
+
+    <!-- Reviews -->
+    <section id="reviews" class="container section">
+      <h2>Customer Reviews</h2>
+      <div class="reviews-grid" id="reviewsGrid">
+        <div class="review card"><strong>Priya</strong><p>Maine 2 hafto se use kiya — hair fall kam hua, shine achi!</p></div>
+        <div class="review card"><strong>Rohit</strong><p>Natural feel, no side effects. Highly recommended.</p></div>
+      </div>
+      <div class="review-form">
+        <textarea id="reviewText" placeholder="Write your review..."></textarea>
+        <button class="btn primary" onclick="submitReview()">Submit Review</button>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="container section">
+      <h2>About Green House</h2>
+      <p class="muted">We make handcrafted natural hair oils using traditional recipes. Our Rose Marry Hair Oil combines time-tested herbs to give you stronger, shinier hair without chemicals.</p>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="container section">
+      <h2>Contact</h2>
+      <form id="contactForm" class="contact-form" onsubmit="event.preventDefault(); alert('Thanks! We will contact you soon.')">
+        <input placeholder="Your name" required />
+        <input type="email" placeholder="Email" required />
+        <textarea placeholder="Message" rows="4" required></textarea>
+        <div style="text-align:right"><button class="btn primary">Send Message</button></div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">&copy; <span id="year"></span> Green House — All rights reserved.</div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+```

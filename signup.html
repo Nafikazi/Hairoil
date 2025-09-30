@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sign Up — Green House</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="auth-page">
+
+  <main class="auth-layout">
+    <div class="auth-card glass">
+      <div class="auth-brand">
+        <img src="logo1.png" alt="Green House logo" class="logo-small"/>
+        <div>
+          <h1 class="brand-heading">Green House</h1>
+          <div class="tag">Rose Marry Hair Oil</div>
+        </div>
+      </div>
+
+      <h2 class="auth-title">Create your account</h2>
+      <p class="muted subtitle">Create your account in seconds</p>
+
+      <form id="signupForm" class="auth-form" autocomplete="on">
+        <div class="form-group">
+          <input id="signupName" type="text" placeholder="Full name" required />
+        </div>
+        <div class="form-group">
+          <input id="signupEmail" type="email" placeholder="Email address" required />
+        </div>
+        <div class="form-group">
+          <input id="signupPassword" type="password" placeholder="Password" required />
+        </div>
+        <button type="submit" class="btn gradient large">Create account</button>
+      </form>
+
+      <div class="auth-bottom">
+        <span class="muted">Already a member?</span>
+        <a href="login.html" class="link">Login</a>
+      </div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
